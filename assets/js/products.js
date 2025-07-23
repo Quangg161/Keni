@@ -9,7 +9,7 @@ const products = [
     image: "assets/img/Nike_Air_Force_1.jpg",
     isNew: true,
     sold: 26,
-    discount: 15,
+    discount: 30,
     description: "Nike Air Force 1 mang phong cách cổ điển, thiết kế trẻ trung phù hợp mọi hoạt động thường ngày."
   },
   {
