@@ -100,7 +100,10 @@ function renderProducts() {
             <h5 class="card-title">${p.name}</h5>
           </a>
           <div class="mb-1">${generateStars(p.rating)} <small class="text-muted">(${p.sold} đã bán)</small></div>
-          <p class="text-danger fw-bold">${p.price.toLocaleString()}đ</p>
+          ${p.discount > 0
+            ? `<p><span class="text-danger fw-bold">${Math.round(p.price * (100 - p.discount) / 100).toLocaleString()}đ</span>
+              <span class="text-muted text-decoration-line-through ms-2">${p.price.toLocaleString()}đ</span></p>`
+            : `<p class="text-danger fw-bold">${p.price.toLocaleString()}đ</p>`}
           <button class="btn btn-outline-dark mt-auto add-to-cart" data-id="${p.id}">
             <i class="fa fa-cart-plus"></i> Thêm vào giỏ
           </button>

@@ -6,18 +6,29 @@ const product = products.find(p => p.id === productId);
 if (product) {
   document.getElementById("product-image").src = product.image;
   document.getElementById("product-name").textContent = product.name;
-  document.getElementById("product-price").textContent = product.price.toLocaleString() + "đ";
+
+  const priceEl = document.getElementById("product-price");
+  if (product.discount > 0) {
+    const discountedPrice = Math.round(product.price * (100 - product.discount) / 100);
+    priceEl.innerHTML = `
+      <span class="text-danger fw-bold">${discountedPrice.toLocaleString()}đ</span>
+      <span class="text-muted text-decoration-line-through ms-2">${product.price.toLocaleString()}đ</span>
+    `;
+  } else {
+    priceEl.textContent = product.price.toLocaleString() + "đ";
+  }
+
   document.getElementById("product-description").textContent = product.description;
 
-  // Hiển thị rating + lượt bán
+  // Rating
   const ratingContainer = document.getElementById("product-rating");
   ratingContainer.innerHTML = `${generateStars(product.rating)} <span class="ms-2">(${product.sold} đã bán)</span>`;
 
-  // Hiển thị size
+  // Size
   const sizeSelect = document.getElementById("size-select");
   sizeSelect.innerHTML = product.size.map(size => `<option value="${size}">${size}</option>`).join("");
 
-  // Thêm vào giỏ
+  // Thêm giỏ hàng
   document.getElementById("add-to-cart-btn").addEventListener("click", () => {
     const size = sizeSelect.value;
     const quantity = parseInt(document.getElementById("quantity").value);
@@ -32,12 +43,10 @@ if (product) {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // Toast thông báo
     if (typeof showToast === "function") {
       showToast(`🛒 Đã thêm <strong>${product.name}</strong> vào giỏ hàng!`, "success");
     }
 
-    // Cập nhật số giỏ hàng
     if (typeof updateCartCount === "function") {
       updateCartCount();
     }
@@ -46,7 +55,6 @@ if (product) {
   document.getElementById("product-detail").innerHTML = "<p class='text-danger'>Không tìm thấy sản phẩm.</p>";
 }
 
-// Render sản phẩm gợi ý
 function renderSuggestedProducts(currentProductId) {
   const container = document.getElementById("suggested-products");
   if (!container) return;
@@ -56,19 +64,27 @@ function renderSuggestedProducts(currentProductId) {
     .sort(() => 0.5 - Math.random())
     .slice(0, 3);
 
-  container.innerHTML = suggestions.map(p => `
-    <div class="col-md-4 mb-4">
-      <div class="card h-100 shadow-sm">
-        <img src="${p.image}" class="card-img-top p-3" style="height: 250px; object-fit: contain;" alt="${p.name}">
-        <div class="card-body text-center">
-          <h5 class="card-title">${p.name}</h5>
-          <p class="text-danger fw-bold">${p.price.toLocaleString()}đ</p>
-          <div class="mb-2">${generateStars(p.rating)} <span class="ms-1 text-muted">(${p.sold} đã bán)</span></div>
-          <a href="Chitietsanpham.html?id=${p.id}" class="btn btn-outline-dark btn-sm">Xem chi tiết</a>
+  container.innerHTML = suggestions.map(p => {
+    const discounted = p.discount > 0;
+    const newPrice = Math.round(p.price * (100 - p.discount) / 100);
+    return `
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="${p.image}" class="card-img-top p-3" style="height: 250px; object-fit: contain;" alt="${p.name}">
+          <div class="card-body text-center">
+            <h5 class="card-title">${p.name}</h5>
+            ${discounted
+              ? `<p><span class="text-danger fw-bold">${newPrice.toLocaleString()}đ</span>
+                   <span class="text-muted text-decoration-line-through ms-2">${p.price.toLocaleString()}đ</span></p>`
+              : `<p class="text-danger fw-bold">${p.price.toLocaleString()}đ</p>`
+            }
+            <div class="mb-2">${generateStars(p.rating)} <span class="ms-1 text-muted">(${p.sold} đã bán)</span></div>
+            <a href="Chitietsanpham.html?id=${p.id}" class="btn btn-outline-dark btn-sm">Xem chi tiết</a>
+          </div>
         </div>
       </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 }
 
 renderSuggestedProducts(productId);

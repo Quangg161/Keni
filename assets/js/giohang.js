@@ -35,9 +35,13 @@ function renderCart() {
     const product = getProductById(item.id);
     if (!product) return;
 
-    const price = product.price;
+    const originalPrice = product.price;
+    const finalPrice = product.discount > 0
+      ? Math.round(originalPrice * (100 - product.discount) / 100)
+      : originalPrice;
+
     const quantity = item.quantity || 1;
-    const itemTotal = price * quantity;
+    const itemTotal = finalPrice * quantity;
     total += itemTotal;
 
     const row = document.createElement("tr");
@@ -51,7 +55,12 @@ function renderCart() {
           <small>Size: ${item.size || 'Chưa chọn'}</small>
         </div>
       </td>
-      <td><span class="product-price">${price.toLocaleString()}</span> đ</td>
+      <td>
+        ${product.discount > 0
+          ? `<span class="text-danger fw-bold">${finalPrice.toLocaleString()}đ</span>
+             <br><small class="text-muted text-decoration-line-through">${originalPrice.toLocaleString()}đ</small>`
+          : `<span class="product-price">${originalPrice.toLocaleString()}đ</span>`}
+      </td>
       <td>
         <div class="input-group input-group-sm">
           <button class="btn btn-outline-secondary btn-minus">-</button>
