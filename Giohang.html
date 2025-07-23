@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng - KENI</title>
+
+  <!-- Bootstrap + icon + style -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bss-overrides.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/Navbar-Centered-Links-icons.css">
+  <link rel="stylesheet" href="assets/css/giohang.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="container" style="max-width: 1200px;">
+    <nav class="navbar navbar-expand-md bg-white py-3">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="Trangchu.html">
+          <img src="assets/img/Logo.png" style="height: 55px; width: 65px; filter: brightness(119%);">
+        </a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-3">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-3">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="Trangchu.html"><strong>Trang chủ</strong></a></li>
+            <li class="nav-item"><a class="nav-link active rounded-3" href="Cuahang.html" style="background: var(--bs-gray-200);"><strong>Cửa hàng</strong></a></li>
+            <li class="nav-item"><a class="nav-link" href="Lienhe.html"><strong>Liên hệ</strong></a></li>
+            <li class="nav-item"><a class="nav-link" href="Taikhoan.html"><strong>Tài khoản</strong></a></li>
+          </ul>
+          <a href="Giohang.html" class="position-relative">
+            <i class="bi bi-cart2 fs-4 text-dark"></i>
+            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Giỏ hàng -->
+  <div class="container my-4">
+    <h2 class="text-center mb-4">Giỏ hàng</h2>
+    <div>
+      <table class="table align-middle text-center">
+        <thead class="table-light">
+          <tr>
+            <th></th>
+            <th class="text-start">Sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart-body">
+          <!-- Sản phẩm sẽ được render từ JS -->
+        </tbody>
+      </table>
+    </div>
+    <div class="bg-light border d-flex justify-content-between align-items-center p-3 mt-4">
+      <h5 class="mb-0">Tổng: <strong id="total-price">0</strong> VNĐ</h5>
+      <button class="btn btn-outline-dark"><i class="fas fa-shopping-cart me-2"></i>Mua ngay</button>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
+
+  <!-- Footer -->
+  <div class="container mt-5">
+    <footer class="footer border-top pt-4">
+      <div class="row text-center text-md-start">
+        <div class="col-md-3">
+          <img src="assets/img/Logo.png" width="120" height="75" style="filter: brightness(145%);" alt="Logo Keni">
+        </div>
+        <div class="col-md-3">
+          <h6 class="fw-bold mb-3">Social</h6>
+          <ul class="list-unstyled">
+            <li><a class="text-decoration-none text-secondary" href="#">Facebook</a></li>
+            <li><a class="text-decoration-none text-secondary" href="#">Instagram</a></li>
+            <li><a class="text-decoration-none text-secondary" href="#">Youtube</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="fw-bold mb-3">Help</h6>
+          <ul class="list-unstyled">
+            <li><a class="text-decoration-none text-secondary" href="Lienhe.html">Contact</a></li>
+            <li><a class="text-decoration-none text-secondary" href="#">Get help</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="fw-bold mb-3">Resources</h6>
+          <ul class="list-unstyled">
+            <li><a class="text-decoration-none text-secondary" href="#">About KENI</a></li>
+            <li><a class="text-decoration-none text-secondary" href="#">Blog</a></li>
+            <li><a class="text-decoration-none text-secondary" href="#">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cartCount.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/giohang.js"></script>
+</body>
+
+</html>

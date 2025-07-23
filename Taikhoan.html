@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Đăng nhập &amp; Đăng ký</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Links-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/css/giohang.css">
+    <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/css/Navbar-Centered-Links-icons.css">
+</head>
+
+<body>
+    <div class="container" style="width: 1200px;margin-bottom: 5px;height: 95px;background: #fffefe;">
+        <nav class="navbar navbar-expand-md bg-body py-3" style="background: #ffffff;height: 90px;margin-top: 0px;">
+            <div class="container"><a class="navbar-brand d-flex align-items-center" href="Trangchu.html"><img data-bss-hover-animate="pulse" src="assets/img/Logo.png" width="50" height="40" style="height: 55px;background: var(--bs-light);width: 65px;filter: brightness(119%);"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" data-bss-hover-animate="pulse" href="Trangchu.html" style="background: var(--bs-white);margin: 0px;border-radius: 10px;"><strong>Trang chủ</strong></a></li>
+                        <li class="nav-item"><a class="nav-link rounded-3" data-bss-hover-animate="pulse" href="Cuahang.html" style="background: var(--bs-white);"><strong>Cửa hàng</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" data-bss-hover-animate="pulse" href="Lienhe.html" style="background: var(--bs-white);border-radius: 10px;"><strong>Liên hệ</strong></a></li>
+                        <li class="nav-item"><a class="nav-link active rounded-3" data-bss-hover-animate="pulse" href="Taikhoan.html" style="background: var(--bs-gray-200);"><strong>Tài khoản</strong></a></li>
+                    </ul>
+                    <a href="Giohang.html" class="position-relative">
+                        <i class="bi bi-cart2 fs-4 text-dark"></i>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container" style="margin-top: 10px;margin-bottom: 10px;">
+        <section class="auth-section">
+            <div class="container" style="text-align: center;">
+                <h1 class="mb-3" style="margin-top: 5px;">Tài Khoản</h1>
+                <div class="row justify-content-center g-4" style="margin-top: -15px;margin-bottom: 15px;">
+                    <div class="col-md-6 col-lg-5 border rounded-3 border-1 shadow m-1">
+                        <div class="auth-form-container">
+                            <h2 class="text-center mb-4" style="font-size: 28px;">Đăng nhập</h2>
+                            <form>
+                                <div class="text-start mb-3"><label class="form-label fw-bold" for="loginEmail">Email</label><input class="form-control form-control" type="email" id="loginEmail" placeholder="VD: Example@gmail.com"></div>
+                                <div class="text-start mb-3"><label class="form-label fw-bold" for="loginPassword">Mật khẩu</label><input class="form-control form-control" type="password" id="loginPassword" placeholder="Nhập mật khẩu"></div>
+                                <div class="d-grid mb-3"><button class="btn btn-dark py-2" type="submit"><strong>Đăng nhập</strong></button></div>
+                                <div class="text-center" style="text-decoration: underline;margin-bottom: 0px;"><a class="text-decoration-none text-dark" href="#" style="text-decoration: underline;background: #ffffff;margin-bottom: 0px;">Quên mật khẩu ?</a></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 border rounded-3 border-1 shadow m-1">
+                        <div class="auth-form-container">
+                            <h2 class="text-center mb-4" style="font-size: 28px;">Đăng ký</h2>
+                            <form>
+                                <div class="text-start mb-3"><label class="form-label fw-bold" for="registerEmail">Email</label><input class="form-control form-control" type="email" id="registerEmail" placeholder="VD: Example@gmail.com"></div>
+                                <div class="text-start mb-3"><label class="form-label fw-bold" for="registerPhone">Số điện thoại</label><input class="form-control form-control" type="tel" id="registerPhone" placeholder="Nhập số điện thoại"></div>
+                                <div class="text-start mb-3"><label class="form-label fw-bold" for="registerPassword">Mật khẩu</label><input class="form-control form-control" type="password" id="registerPassword" placeholder="Nhập mật khẩu mới"></div>
+                                <div class="text-start mb-4"><label class="form-label fw-bold" for="confirmPassword">Xác nhận mật khẩu</label><input class="form-control form-control" type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu"></div>
+                                <div class="d-grid"><button class="btn btn-dark py-2" type="submit" style="margin-top: -5px;margin-bottom: 10px;"><strong>Đăng ký</strong></button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container" style="margin-top: 0px;">
+        <footer class="footer" style="margin-top: 5px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col align-content-center"><a class="navbar-brand d-flex justify-content-center align-items-center" href="Trangchu.html"><img class="d-flex" src="assets/img/Logo.png" width="120" height="75" style="width: 110px;height: 75px;opacity: 1;filter: blur(0px) brightness(145%);margin: 9px 0px 0px 50px;margin-left: 0px;margin-top: 10px;" alt="Logo Keni"></a></div>
+                    <div class="col-md-3 mb-4 mb-md-0" style="margin-top: 0px;">
+                        <h6 class="fw-bold mb-3">Social</h6>
+                        <ul class="list-unstyled">
+                            <li><a class="text-decoration-none text-secondary" href="#">Facebook</a></li>
+                            <li><a class="text-decoration-none text-secondary" href="#">Instagram</a></li>
+                            <li><a class="text-decoration-none text-secondary" href="#">Youtube</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-4 mb-md-0">
+                        <h6 class="fw-bold mb-3">Help</h6>
+                        <ul class="list-unstyled">
+                            <li><a class="text-decoration-none text-secondary" href="#">Contact</a></li>
+                            <li><a class="text-decoration-none text-secondary" href="#">Get help</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h6 class="fw-bold mb-3">Resources</h6>
+                        <ul class="list-unstyled">
+                            <li><a class="text-decoration-none text-secondary" href="#">About KENI</a></li>
+                            <li><a class="text-decoration-none text-secondary" href="#">Blog</a></li>
+                            <li><a class="text-decoration-none text-secondary" href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cartCount.js"></script>
+    <script src="assets/js/giohang.js"></script>
+</body>
+
+</html>
