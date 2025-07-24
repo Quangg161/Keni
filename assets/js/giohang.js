@@ -31,7 +31,7 @@ function renderCart() {
 
   let total = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     const product = getProductById(item.id);
     if (!product) return;
 
@@ -42,11 +42,10 @@ function renderCart() {
 
     const quantity = item.quantity || 1;
     const itemTotal = finalPrice * quantity;
-    total += itemTotal;
 
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td><input type="checkbox" checked class="product-check"></td>
+      <td><input type="checkbox" class="product-check" checked data-index="${index}"></td>
       <td class="text-start d-flex align-items-center">
         <img class="img-thumbnail" src="${product.image}" style="width:120px;height:auto;">
         <div class="ms-3">
@@ -107,6 +106,32 @@ function renderCart() {
     cartBody.appendChild(row);
   });
 
+  // Tính tổng giá sau khi đã render xong
+  updateTotalPrice();
+}
+
+// Tính tổng giá theo checkbox được chọn
+function updateTotalPrice() {
+  const rows = cartBody.querySelectorAll("tr");
+  let total = 0;
+
+  rows.forEach((row, index) => {
+    const checkbox = row.querySelector(".product-check");
+    if (!checkbox || !checkbox.checked) return;
+
+    const item = cart[index];
+    const product = getProductById(item.id);
+    if (!product) return;
+
+    const originalPrice = product.price;
+    const finalPrice = product.discount > 0
+      ? Math.round(originalPrice * (100 - product.discount) / 100)
+      : originalPrice;
+
+    const quantity = item.quantity || 1;
+    total += finalPrice * quantity;
+  });
+
   totalPriceEl.textContent = total.toLocaleString();
 }
 
@@ -114,4 +139,11 @@ function renderCart() {
 document.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCartCount();
+
+  // Gắn sự kiện checkbox thay đổi → cập nhật tổng
+  cartBody.addEventListener("change", function (e) {
+    if (e.target && e.target.classList.contains("product-check")) {
+      updateTotalPrice();
+    }
+  });
 });

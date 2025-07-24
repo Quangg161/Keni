@@ -1,3 +1,5 @@
+// cuahang.js - sau khi cập nhật, loại bỏ logic thêm vào giỏ hàng trực tiếp
+
 const productList = document.getElementById("product-list");
 const searchInput = document.getElementById("search-input");
 const brandFilterContainer = document.getElementById("brand-filters");
@@ -20,15 +22,12 @@ function generateStars(rating) {
   for (let i = 0; i < fullStars; i++) {
     stars.push('<i class="fa-solid fa-star text-warning"></i>');
   }
-
   if (hasHalf && fullStars < 5) {
     stars.push('<i class="fa-regular fa-star text-warning"></i>');
   }
-
   while (stars.length < 5) {
     stars.push('<i class="fa-regular fa-star text-secondary"></i>');
   }
-
   return stars.join('');
 }
 
@@ -84,7 +83,6 @@ function renderProducts() {
   );
 
   filtered = sortProducts(filtered);
-
   const totalPages = Math.ceil(filtered.length / productsPerPage);
   const start = (currentPage - 1) * productsPerPage;
   const productsToShow = filtered.slice(start, start + productsPerPage);
@@ -99,25 +97,18 @@ function renderProducts() {
           <a href="Chitietsanpham.html?id=${p.id}" class="text-decoration-none text-dark">
             <h5 class="card-title">${p.name}</h5>
           </a>
-          <div class="mb-1">${generateStars(p.rating)} <small class="text-muted">(${p.sold} đã bán)</small></div>
+          <div class="mb-1">${generateStars(p.rating)} <small class="text-muted">(${p.sold || 0} đã bán)</small></div>
           ${p.discount > 0
             ? `<p><span class="text-danger fw-bold">${Math.round(p.price * (100 - p.discount) / 100).toLocaleString()}đ</span>
-              <span class="text-muted text-decoration-line-through ms-2">${p.price.toLocaleString()}đ</span></p>`
+               <span class="text-muted text-decoration-line-through ms-2">${p.price.toLocaleString()}đ</span></p>`
             : `<p class="text-danger fw-bold">${p.price.toLocaleString()}đ</p>`}
-          <button class="btn btn-outline-dark mt-auto add-to-cart" data-id="${p.id}">
-            <i class="fa fa-cart-plus"></i> Thêm vào giỏ
-          </button>
+          <a href="Chitietsanpham.html?id=${p.id}" class="btn btn-outline-dark mt-auto">
+            <i></i> Xem chi tiết
+          </a>
         </div>
       </div>
     </div>
   `).join("");
-
-  document.querySelectorAll(".add-to-cart").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const productId = parseInt(btn.dataset.id);
-      addToCart(productId);
-    });
-  });
 
   renderPagination(totalPages);
 }
@@ -137,26 +128,6 @@ function renderPagination(totalPages) {
     };
     pagination.appendChild(li);
   }
-}
-
-function addToCart(productId) {
-  const existing = cart.find(item => item.id === productId);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({ id: productId, quantity: 1 });
-  }
-  saveCart();
-  updateCartCount();
-
-  const product = products.find(p => p.id === productId);
-  if (typeof showToast === "function" && product) {
-    showToast(`🛒 Đã thêm <strong>${product.name}</strong> vào giỏ hàng!`, "success");
-  }
-}
-
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function updateCartCount() {
