@@ -69,13 +69,19 @@ sortButtons.forEach(btn => {
 
 function sortProducts(data) {
   switch (currentSort) {
-    case "new": return data.sort((a, b) => b.isNew - a.isNew);
-    case "low": return data.sort((a, b) => a.price - b.price);
-    case "high": return data.sort((a, b) => b.price - a.price);
-    case "rating": return data.sort((a, b) => b.rating - a.rating);
-    default: return data;
+    case "new":
+      return data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    case "low":
+      return data.sort((a, b) => a.price - b.price);
+    case "high":
+      return data.sort((a, b) => b.price - a.price);
+    case "rating":
+      return data.sort((a, b) => b.rating - a.rating);
+    default:
+      return data;
   }
 }
+
 
 function renderProducts() {
   let filtered = products.filter(p =>
