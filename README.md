@@ -4,7 +4,7 @@
 
 ---
 
-## 📝 Mô tả Dự Án
+## Mô tả Dự Án
 
 KENI là một website thương mại điện tử đơn giản cho phép người dùng:
 - Duyệt và tìm kiếm sản phẩm giày
@@ -15,13 +15,38 @@ KENI là một website thương mại điện tử đơn giản cho phép ngư�
 
 ## 👥 Thành viên & Vai trò
 
-| 👤 Họ tên        | 🛠️ Vai trò           | 📊 Tỉ trọng đóng góp |
-|------------------|----------------------|----------------------|
-| Nguyễn Văn A     | Frontend Developer   | ![50%](https://progress-bar.dev/50/?width=120&color=4caf50&title=50%) |
-| Trần Thị B       | Thiết kế UI/UX       | ![30%](https://progress-bar.dev/30/?width=120&color=2196f3&title=30%) |
-| Lê Văn C         | Quản lý GitHub        | ![20%](https://progress-bar.dev/20/?width=120&color=ff9800&title=20%) |
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Họ và Tên</th>
+      <th>MSSV</th>
+      <th>Vai trò</th>
+      <th>Khối lượng công việc (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nguyễn Nhật Quang</td>
+      <td>2174802010492</td>
+      <td>
+        - Trưởng nhóm, Phụ trách giao diện người dùng và xử lý logic các trang: 'Trang chủ, Cửa hàng, Chi tiết sản phẩm, Giỏ hàng'.<br>
+        - Xử lý các phần tử Header, Narbar, Footer.<br>
+        - Thiết kế giao diện Figma dành cho PC.
+      </td>
+      <td>100%</td>
+    </tr>
+    <tr>
+      <td>Nguyễn Lê Thiên Phúc</td>
+      <td>2174802010888</td>
+      <td>
+        - Phụ trách giao diện người dùng và xử lý logic các trang: 'Liên hệ, Tài khoản'.<br>
+        - Thiết kế giao diện Figma dành cho Mobile.
+      </td>
+      <td>90%</td>
+    </tr>
+  </tbody>
+</table>
 
-> 🎨 Ghi chú: Thanh tiến trình chỉ mang tính minh hoạ, số liệu sẽ được cập nhật sau.
 
 ---
 
