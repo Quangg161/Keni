@@ -22,7 +22,7 @@ KENI là một website thương mại điện tử đơn giản cho phép ngư�
       <th>Họ và Tên</th>
       <th>MSSV</th>
       <th>Vai trò</th>
-      <th>Khối lượng công việc (%)</th>
+      <th>Tỉ trọng hoàn thành công việc (%)</th>
     </tr>
   </thead>
   <tbody>
@@ -43,7 +43,7 @@ KENI là một website thương mại điện tử đơn giản cho phép ngư�
         - Phụ trách giao diện người dùng và xử lý logic các trang: 'Liên hệ, Tài khoản'.<br>
         - Thiết kế giao diện Figma dành cho Mobile.
       </td>
-      <td>90%</td>
+      <td>80%</td>
     </tr>
   </tbody>
 </table>
